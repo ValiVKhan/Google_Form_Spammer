@@ -1,12 +1,19 @@
 import time
+import random
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
 #UserInputs
-option = input("What Option? ")
-color = input("What Color?")
+#option = input("What Option? ")
+#color = input("What Color? ")
 spam_count = input("How many times? ")
+#begin = input("")
+
+
+
+
+
 # Initiliaze Webdriver
 try:
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -32,7 +39,6 @@ def NameLogin():
 
     # Random Name Generator
 
-    import random
 
     name1_number = (random.SystemRandom().randint(0, 280))
     name2_number = (random.SystemRandom().randint(0, 280))
@@ -58,8 +64,11 @@ def NameLogin():
     Name2_box.send_keys(random2_name)
     print(name2_number, ",", random2_name, 'inputed')
     time.sleep(.1)
+#Options
 
-    if option == "A":
+    option_num = (random.SystemRandom().randint(1, 2))
+
+    if option_num == 1:
 
         #Pressing The Options
         Options_box_A = driver.find_element_by_css_selector('.freebirdFormviewerComponentsQuestionRadioChoice:nth-child(1) .docssharedWizToggleLabeledLabelText')
@@ -67,30 +76,35 @@ def NameLogin():
         print('Option A slected')
         time.sleep(.1)
 
-    if option == "B":
+    if option_num == 2:
         #Pressing The Options
         Options_box_B = driver.find_element_by_css_selector('.freebirdFormviewerComponentsQuestionRadioChoice:nth-child(2) .docssharedWizToggleLabeledLabelText')
         Options_box_B.click()
         print('Option B slected')
         time.sleep(.1)
 #Color choices
-    if color == "Red":
+
+    color_num = (random.SystemRandom().randint(1, 3))
+
+    print(color_num)
+
+    if color_num == 1:
         Options_checkbox_Red = driver.find_element_by_css_selector('.freebirdFormviewerComponentsQuestionCheckboxChoice:nth-child(1) .docssharedWizToggleLabeledLabelText')
         Options_checkbox_Red.click()
         print('Red slected')
         time.sleep(.1)
 
-    if color == "Yellow":
+    if color_num == 2:
         Options_checkbox_Yellow = driver.find_element_by_css_selector('.freebirdFormviewerComponentsQuestionCheckboxChoice:nth-child(2) .docssharedWizToggleLabeledLabelText')
         Options_checkbox_Yellow.click()
         print('Yellow slected')
         time.sleep(.1)
 
-    if color == "Blue":
+    if color_num == 3:
         Options_checkbox_Blue = driver.find_element_by_css_selector('.freebirdFormviewerComponentsQuestionCheckboxChoice:nth-child(3) .docssharedWizToggleLabeledLabelText')
         Options_checkbox_Blue.click()
         print('Blue slected')
-        time.sleep(.1)
+        time.sleep(1)
 
     #Pressing The Submit Button
     submit_box = driver.find_element_by_css_selector('.appsMaterialWizButtonPaperbuttonFilled .appsMaterialWizButtonPaperbuttonLabel')
@@ -117,9 +131,9 @@ while (repeat_count< int(spam_count)):
     NameLogin()
 
 
-
 driver.quit()
 print("Chrome Quit")
 print("Total Spam Count:", spam_count)
-print("Selected Option:", option)
+#print("Selected Option:", option)
 print("Execution Time:", (time.time() - start_time))
+print("SPAM COMPLETE")
