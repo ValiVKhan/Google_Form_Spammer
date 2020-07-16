@@ -4,7 +4,7 @@ import random
 name_number = (random.SystemRandom().randint(0, 284))
 
 
-file_open = open('Texter.py')
+file_open = open('Texter.txt')
 
 all_lines = file_open. readlines()
 
