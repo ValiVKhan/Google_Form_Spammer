@@ -34,11 +34,11 @@ def NameLogin():
 
     import random
 
-    name1_number = (random.SystemRandom().randint(0, 280))
-    name2_number = (random.SystemRandom().randint(0, 280))
+    name1_number = (random.SystemRandom().randint(0, 1003))
+    name2_number = (random.SystemRandom().randint(0, 1003))
 
 
-    file_open = open('Texter.py')
+    file_open = open('Texter.txt')
 
     all_lines = file_open.readlines()
 
