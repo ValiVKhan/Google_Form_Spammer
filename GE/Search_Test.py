@@ -3,7 +3,7 @@ import random
 
 name_search = (random.SystemRandom().randint(0, 3))
 
-file_open = open('GE_Search.py')
+file_open = open('Search.txt')
 
 print(name_search)
 
