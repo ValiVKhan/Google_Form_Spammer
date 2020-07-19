@@ -1,0 +1,49 @@
+import time
+import random
+from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+
+run_num = 0
+block = 8
+count = 10
+#Initializing
+try:
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+except:
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+#Text Clearer
+f = open('Models.txt', 'r+')
+f.truncate(0)
+f.close()
+#Site Opener
+
+def opener():
+    driver.get('https://www.tesla.com/inventory/used/mx?PAINT=WHITE,BLACK,BLUE,RED&INTERIOR=BLACK_TEXTILE,WHITE,CREAM,TAN,BLACK&PreownedWarrantyEligibility=PRE-OWNED&AUTOPILOT=AUTOPILOT_FULL_SELF_DRIVING&CABIN_CONFIG=SIX&Year=2019,2018,2017&arrangeby=plh&zip=77386')
+    print("Tesla Website opened")
+    time.sleep(7)
+opener()
+
+def reader():
+    try:
+        set = driver.find_element_by_css_selector('.result:nth-child(' +str(block)+') > .result-header')
+        print(set.text)
+        time.sleep(1)
+        specs = driver.find_element_by_css_selector('.result:nth-child('+str(block)+') .tds-list-item:nth-child(3)')
+        print(specs.text)
+        with open('Models.txt', 'a') as f:
+            f.write(set.text)
+            f.write("\n")
+            f.write(specs.text)
+            f.write("\n")
+        time.sleep(1)
+    except NoSuchElementException as exception:
+        pass
+        
+
+while (block < count):
+    block = block + 1
+    reader()
