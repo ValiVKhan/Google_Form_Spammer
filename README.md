@@ -7,4 +7,4 @@ Install:
 3. https://chromedriver.chromium.org/downloads
 
 Run:
-Beast.py
+Python3 "File Name".py
