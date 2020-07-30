@@ -6,4 +6,5 @@ Install:
 2. pip3 install webdriver_manager
 3. https://chromedriver.chromium.org/downloads
 Run:
+
 Beast.py
