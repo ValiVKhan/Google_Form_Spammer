@@ -1,14 +1,8 @@
-import time
+from time import sleep
 import random
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-#Inputs
-
-#spam_count = input("How many times? ")
-star_time = time.time()
-spam_count = input("Spam count? ")
-repeat_count = 0
 
 #Web Driving
 try:
@@ -27,5 +21,3 @@ opener()
 
 
 driver.quit()
-
-
